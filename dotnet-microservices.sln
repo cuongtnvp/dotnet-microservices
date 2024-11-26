@@ -54,12 +54,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "markdown", "markdown", "{B5CD97E8-7AAB-497D-A7F4-295A5F52125C}"
 	ProjectSection(SolutionItems) = preProject
 		markdown\01.07.Solution_Architect.md = markdown\01.07.Solution_Architect.md
+		markdown\01.08.Create_Infrastructure_and_docker_container.md = markdown\01.08.Create_Infrastructure_and_docker_container.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{F863052D-636C-4E92-B6BB-0420BA37E3DA}"
 	ProjectSection(SolutionItems) = preProject
 		Solution architect.png = Solution architect.png
+		global.json = global.json
+		docker-compose.yml = docker-compose.yml
+		docker-compose.override.yml = docker-compose.override.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{486DB750-32A6-4028-B51B-1F891155043D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
