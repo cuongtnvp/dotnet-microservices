@@ -55,6 +55,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "markdown", "markdown", "{B5
 	ProjectSection(SolutionItems) = preProject
 		markdown\01.07.Solution_Architect.md = markdown\01.07.Solution_Architect.md
 		markdown\01.08.Create_Infrastructure_and_docker_container.md = markdown\01.08.Create_Infrastructure_and_docker_container.md
+		markdown\01.09.Logger_Service_Serilog.md = markdown\01.09.Logger_Service_Serilog.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{F863052D-636C-4E92-B6BB-0420BA37E3DA}"
