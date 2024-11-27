@@ -1,45 +1,43 @@
 using Serilog;
 using Common.Logging;
+using Product.API.Extensions;
+using Product.API.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Host.UseSerilog(Serilogger.Configure
-);
+
 Log.Information("Starting Product API up and running.");
 
 try
 {
-// Add services to the container.
-    builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    builder.Host.UseSerilog(Serilogger.Configure);
+    // Add custom configuration
+    builder.AddAppConfiguration();
+
+    // Add Services
+    builder.Services.AddInfrastructure(builder.Configuration);
 
     var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
+    // Configure the HTTP request pipeline.
+    app.UseInfrastructure();
+    app.MigrateDatabase<ProductContext>((context,_) =>
     {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseHttpsRedirection();
-
-    app.UseAuthorization();
-    app.MapControllers();
-
-    app.Run();
-
-
-
+        ProductContextSeed.SeedProductsAsync(context,Log.Logger).Wait();
+    })// Host
+        .Run(); // auto migration
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "Host terminated unexpectedly");
+    string typeName = ex.GetType().Name;
+    //Log.Error(typeName);
+    if (typeName.Equals("HostAbortedException", StringComparison.Ordinal)) // Prevent log error in migrations
+    {
+        throw;
+    }
+    Log.Fatal(ex, $"Unhandled exception: {ex.Message}");
 }
 finally
 {
     Log.Information("Shutting down Product API complete.");
     Log.CloseAndFlush();
 }
-
