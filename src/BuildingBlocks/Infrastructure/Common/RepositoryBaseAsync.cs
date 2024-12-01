@@ -28,7 +28,7 @@ public class RepositoryBaseAsync<T, K, TContext>(TContext context, IUnitOfWork<T
 
     public IQueryable<T> FindByCondition(Expression<Func<T, bool>> predicate, bool trackChanges = false)
     {
-      return !trackChanges ? _context.Set<T>().AsNoTracking() : _context.Set<T>().Where(predicate);
+      return !trackChanges ? _context.Set<T>().AsNoTracking().Where(predicate) : _context.Set<T>().Where(predicate);
     }
 
     public IQueryable<T> FindByCondition(Expression<Func<T, bool>> predicate, bool trackChanges = false,

@@ -58,6 +58,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "markdown", "markdown", "{B5
 		markdown\01.09.Logger_Service_Serilog.md = markdown\01.09.Logger_Service_Serilog.md
 		markdown\01.10.Create-Entity-Dtos-Repository-Pattern-For-Product-Microservices.md = markdown\01.10.Create-Entity-Dtos-Repository-Pattern-For-Product-Microservices.md
 		markdown\02.02.Implement-CRUD-Method-for-Product.API.md = markdown\02.02.Implement-CRUD-Method-for-Product.API.md
+		markdown\02.03.Run-Product.API-Microservices-Development-Env.md = markdown\02.03.Run-Product.API-Microservices-Development-Env.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{F863052D-636C-4E92-B6BB-0420BA37E3DA}"
@@ -69,6 +70,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{486DB750-32A6-4028-B51B-1F891155043D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postman", "postman", "{DEC1A20D-A8B1-4816-BDE8-E421C6FE86C2}"
+	ProjectSection(SolutionItems) = preProject
+		postman\Product.API.postman_collection.json = postman\Product.API.postman_collection.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

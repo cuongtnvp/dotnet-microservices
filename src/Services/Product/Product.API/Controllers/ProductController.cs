@@ -9,23 +9,10 @@ using Product.API.Repositories.Interfaces;
 using Shared.Dtos;
 
 namespace Product.API.Controllers;
+
 [ApiController]
 [Route("api/[controller]")]
-// public class ProductController(IRepositoryBaseAsync<CatalogProduct, Guid, ProductContext> repository)
-//     : ControllerBase
-// {
-//     private readonly IRepositoryBaseAsync<CatalogProduct,Guid,ProductContext>  _repository = repository;
-//
-//     // GET
-//     [HttpGet]
-//     public async Task<IActionResult> GetProducts()
-//     {
-//         var result = await _repository.FindAll().ToListAsync();
-//         return Ok(result);
-//     }
-//     
-// }
-public class ProductController(IProductRepository repository,IMapper mapper)
+public class ProductController(IProductRepository repository, IMapper mapper)
     : ControllerBase
 {
     #region CRUD
@@ -38,10 +25,11 @@ public class ProductController(IProductRepository repository,IMapper mapper)
         {
             return NotFound();
         }
+
         var result = mapper.Map<ProductDto>(product);
         return Ok(result);
     }
-    #endregion
+
     // GET
     [HttpGet]
     public async Task<IActionResult> GetProducts()
@@ -54,6 +42,9 @@ public class ProductController(IProductRepository repository,IMapper mapper)
     [HttpPost]
     public async Task<IActionResult> CreateProduct(CreateProductDto productDto)
     {
+        var productEntity = await repository.GetProductByNoAsync(productDto.No);
+        if (productEntity != null) return BadRequest($"Product no: {productDto.No} already exists");
+        
         var product = mapper.Map<CatalogProduct>(productDto);
         await repository.CreateProduct(product);
         await repository.SaveChangesAsync();
@@ -62,13 +53,14 @@ public class ProductController(IProductRepository repository,IMapper mapper)
     }
 
     [HttpPut("{id:Guid}")]
-    public async Task<IActionResult> UpdateProduct([Required] Guid id,[FromBody] UpdateProductDto updateProductDto)
+    public async Task<IActionResult> UpdateProduct([Required] Guid id, [FromBody] UpdateProductDto updateProductDto)
     {
         var product = await repository.GetProductByIdAsync(id);
         if (product == null)
         {
             return NotFound();
         }
+
         var updatedProduct = mapper.Map(updateProductDto, product);
         await repository.UpdateProduct(updatedProduct);
         await repository.SaveChangesAsync();
@@ -80,20 +72,24 @@ public class ProductController(IProductRepository repository,IMapper mapper)
     public async Task<IActionResult> DeleteProduct([Required] Guid id)
     {
         var product = await repository.GetProductByIdAsync(id);
-        if(product == null) return NotFound();
+        if (product == null) return NotFound();
         await repository.DeleteProduct(id);
         await repository.SaveChangesAsync();
         return NoContent();
     }
- #region Additional Resources
 
- [HttpGet("get-product-by-no/{productNo}")]
- public async Task<IActionResult> GetProductByNo([Required]string productNo)
- {
-     var product = await repository.GetProductByNoAsync(productNo);
-     if (product == null) return NotFound();
-     var result = mapper.Map<ProductDto>(product);
-     return Ok(result);
- }
- #endregion
+    #endregion
+
+    #region Additional Resources
+
+    [HttpGet("get-product-by-no/{productNo}")]
+    public async Task<IActionResult> GetProductByNo([Required] string productNo)
+    {
+        var product = await repository.GetProductByNoAsync(productNo);
+        if (product == null) return NotFound();
+        var result = mapper.Map<ProductDto>(product);
+        return Ok(result);
+    }
+
+    #endregion
 }
