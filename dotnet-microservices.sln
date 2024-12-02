@@ -59,6 +59,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "markdown", "markdown", "{B5
 		markdown\02.03.Run-Product.API-Microservices-Development-Env.md = markdown\02.03.Run-Product.API-Microservices-Development-Env.md
 		markdown\02.04.Containerize-Product.API-Microservices-With-Mysql.md = markdown\02.04.Containerize-Product.API-Microservices-With-Mysql.md
 		markdown\README.md = markdown\README.md
+		markdown\03.01.PostgreSQL-review.md = markdown\03.01.PostgreSQL-review.md
+		markdown\PostgreSQL Architect.png = markdown\PostgreSQL Architect.png
+		markdown\PostgreSQL login web.png = markdown\PostgreSQL login web.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{F863052D-636C-4E92-B6BB-0420BA37E3DA}"
