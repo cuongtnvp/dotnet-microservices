@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   #database section
@@ -108,17 +108,17 @@ services:
     ports:
       - "5601:5601"
   #microservices api section
-#  product.api:
-#    container_name: product.api
-#    environment:
-#      - ASPNETCORE_ENVIRONMENT=Development
-#      - ASPNETCORE_URLS=http://+:80
-#      - "ConnectionStrings:DefaultConnectionString=Server=productdb;Port=3306;Database=ProductDb;Uid=root;Pwd=Cuong@840;"
-#    depends_on:
-#      - productdb
-#    ports:
-#      - "6002:80"
-#    restart: always
+  product.api:
+    container_name: product.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - "ConnectionStrings:DefaultConnectionString=Server=productdb;Port=3306;Database=ProductDb;Uid=root;Pwd=Cuong@840;"
+    depends_on:
+      - productdb
+    ports:
+      - "6002:80"
+    restart: always
 #
 #  customer.api:
 #    container_name: customer.api

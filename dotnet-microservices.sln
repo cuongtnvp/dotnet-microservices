@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.API", "src\Services\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product", "Product", "{0D2E7901-5D76-4FFC-969D-16DE6CC73DAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.API", "src\Services\Product\Product.API\Product.API.csproj", "{63574BBC-5A62-4F0E-BDA9-C0072E4E6C32}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{D2E680E7-3296-4FE3-8F87-BEA80CAFD3A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.API", "src\Services\Ordering\Ordering.API\Ordering.API.csproj", "{E5AC1A2B-8363-491E-8DDE-3B8CDFB66E46}"
@@ -59,6 +57,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "markdown", "markdown", "{B5
 		markdown\01.10.Create-Entity-Dtos-Repository-Pattern-For-Product-Microservices.md = markdown\01.10.Create-Entity-Dtos-Repository-Pattern-For-Product-Microservices.md
 		markdown\02.02.Implement-CRUD-Method-for-Product.API.md = markdown\02.02.Implement-CRUD-Method-for-Product.API.md
 		markdown\02.03.Run-Product.API-Microservices-Development-Env.md = markdown\02.03.Run-Product.API-Microservices-Development-Env.md
+		markdown\02.04.Containerize-Product.API-Microservices-With-Mysql.md = markdown\02.04.Containerize-Product.API-Microservices-With-Mysql.md
+		markdown\README.md = markdown\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{F863052D-636C-4E92-B6BB-0420BA37E3DA}"
@@ -75,6 +75,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postman", "postman", "{DEC1
 	ProjectSection(SolutionItems) = preProject
 		postman\Product.API.postman_collection.json = postman\Product.API.postman_collection.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.API", "src\Services\Product.API\Product.API.csproj", "{E5693329-CDB5-4247-ABAB-FC7D64D2F9D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,10 +115,6 @@ Global
 		{815E9E0F-2CDF-4FD6-B93B-2B39489662DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{815E9E0F-2CDF-4FD6-B93B-2B39489662DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{815E9E0F-2CDF-4FD6-B93B-2B39489662DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63574BBC-5A62-4F0E-BDA9-C0072E4E6C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63574BBC-5A62-4F0E-BDA9-C0072E4E6C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63574BBC-5A62-4F0E-BDA9-C0072E4E6C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63574BBC-5A62-4F0E-BDA9-C0072E4E6C32}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E5AC1A2B-8363-491E-8DDE-3B8CDFB66E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E5AC1A2B-8363-491E-8DDE-3B8CDFB66E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5AC1A2B-8363-491E-8DDE-3B8CDFB66E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -137,6 +135,10 @@ Global
 		{8CA3B248-E926-4E0F-994C-62ABC23B659D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CA3B248-E926-4E0F-994C-62ABC23B659D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CA3B248-E926-4E0F-994C-62ABC23B659D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5693329-CDB5-4247-ABAB-FC7D64D2F9D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5693329-CDB5-4247-ABAB-FC7D64D2F9D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5693329-CDB5-4247-ABAB-FC7D64D2F9D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5693329-CDB5-4247-ABAB-FC7D64D2F9D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{589A4357-C432-4812-8C9F-AB103B1AAA82} = {D321026C-0334-4EDA-A27C-0F03B4B4F08F}
@@ -151,7 +153,6 @@ Global
 		{3B4BE024-CA66-449F-AEB5-95827C9248F9} = {FF099664-4F20-47CF-942F-9031A02C26DA}
 		{815E9E0F-2CDF-4FD6-B93B-2B39489662DC} = {3B4BE024-CA66-449F-AEB5-95827C9248F9}
 		{0D2E7901-5D76-4FFC-969D-16DE6CC73DAA} = {FF099664-4F20-47CF-942F-9031A02C26DA}
-		{63574BBC-5A62-4F0E-BDA9-C0072E4E6C32} = {0D2E7901-5D76-4FFC-969D-16DE6CC73DAA}
 		{D2E680E7-3296-4FE3-8F87-BEA80CAFD3A7} = {FF099664-4F20-47CF-942F-9031A02C26DA}
 		{E5AC1A2B-8363-491E-8DDE-3B8CDFB66E46} = {D2E680E7-3296-4FE3-8F87-BEA80CAFD3A7}
 		{0818CD3C-6359-4250-A035-59299E6248C1} = {FF099664-4F20-47CF-942F-9031A02C26DA}
@@ -162,5 +163,6 @@ Global
 		{0AFD7E10-5618-4C02-8557-6C607CF0BF58} = {DE0AD6FA-A5B7-4FB1-B192-361B0B930816}
 		{78F52424-C489-416F-AC44-ECE3805FA7A4} = {D321026C-0334-4EDA-A27C-0F03B4B4F08F}
 		{8CA3B248-E926-4E0F-994C-62ABC23B659D} = {78F52424-C489-416F-AC44-ECE3805FA7A4}
+		{E5693329-CDB5-4247-ABAB-FC7D64D2F9D0} = {0D2E7901-5D76-4FFC-969D-16DE6CC73DAA}
 	EndGlobalSection
 EndGlobal
