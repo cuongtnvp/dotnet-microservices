@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "763c1583-8398-4c16-a551-d18aad16b052",
+		"name": "Product.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3503552"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{product.api}}",
+					"host": [
+						"{{product.api}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{product.api}}/08dd0eb5-dc9b-4f09-8237-d1236d7e856b",
+					"host": [
+						"{{product.api}}"
+					],
+					"path": [
+						"08dd0eb5-dc9b-4f09-8237-d1236d7e856b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by no",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{product.api}}/get-product-by-no/lotus",
+					"host": [
+						"{{product.api}}"
+					],
+					"path": [
+						"get-product-by-no",
+						"lotus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test\",\n  \"description\": \"string\",\n  \"summary\": \"string\",\n  \"price\": 0,\n  \"no\": \"createtest\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{product.api}}",
+					"host": [
+						"{{product.api}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updat",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"no\": \"createtest2\",\n    \"name\": \"cuong\",\n    \"summary\": \"string\",\n    \"description\": \"string\",\n    \"price\": 12000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{product.api}}/08dd114b-07a1-4c6b-820e-4772400e49e2",
+					"host": [
+						"{{product.api}}"
+					],
+					"path": [
+						"08dd114b-07a1-4c6b-820e-4772400e49e2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"no\": \"createtest2\",\n    \"name\": \"cuong\",\n    \"summary\": \"string\",\n    \"description\": \"string\",\n    \"price\": 12000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{product.api}}/08dd114b-07a1-4c6b-820e-4772400e49e2",
+					"host": [
+						"{{product.api}}"
+					],
+					"path": [
+						"08dd114b-07a1-4c6b-820e-4772400e49e2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
