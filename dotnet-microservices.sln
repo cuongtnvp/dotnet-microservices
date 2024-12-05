@@ -63,6 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "markdown", "markdown", "{B5
 		markdown\PostgreSQL Architect.png = markdown\PostgreSQL Architect.png
 		markdown\PostgreSQL login web.png = markdown\PostgreSQL login web.png
 		markdown\03.02.Initial-Project-Web-API-And-Entity-Dtos-For-Customer.API-Microservices.md = markdown\03.02.Initial-Project-Web-API-And-Entity-Dtos-For-Customer.API-Microservices.md
+		markdown\03.03.Build-Repository-Pattern-For-Customer.API-Microservices.md = markdown\03.03.Build-Repository-Pattern-For-Customer.API-Microservices.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{F863052D-636C-4E92-B6BB-0420BA37E3DA}"
