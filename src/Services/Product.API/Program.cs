@@ -4,12 +4,11 @@ using Product.API.Extensions;
 using Product.API.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Host.UseSerilog(Serilogger.Configure);
 Log.Information("Starting Product API up and running.");
 
 try
 {
-    builder.Host.UseSerilog(Serilogger.Configure);
     // Add custom configuration
     builder.AddAppConfiguration();
 
@@ -20,20 +19,17 @@ try
 
     // Configure the HTTP request pipeline.
     app.UseInfrastructure();
-    app.MigrateDatabase<ProductContext>((context,_) =>
-    {
-        ProductContextSeed.SeedProductsAsync(context,Log.Logger).Wait();
-    })// Host
+    app.MigrateDatabase<ProductContext>((context, _) =>
+        {
+            ProductContextSeed.SeedProductsAsync(context, Log.Logger).Wait();
+        }) // Host
         .Run(); // auto migration
 }
 catch (Exception ex)
 {
     string typeName = ex.GetType().Name;
     //Log.Error(typeName);
-    if (typeName.Equals("HostAbortedException", StringComparison.Ordinal)) // Prevent log error in migrations
-    {
-        throw;
-    }
+    if (typeName.Equals("HostAbortedException", StringComparison.Ordinal)) throw; // Prevent log error in migrations
     Log.Fatal(ex, $"Unhandled exception: {ex.Message}");
 }
 finally

@@ -2,7 +2,7 @@ using Product.API.Entities;
 using ILogger = Serilog.ILogger;
 namespace Product.API.Persistence;
 
-public class ProductContextSeed
+public abstract class ProductContextSeed
 {
     public static async Task SeedProductsAsync(ProductContext productContext, ILogger logger)
     {

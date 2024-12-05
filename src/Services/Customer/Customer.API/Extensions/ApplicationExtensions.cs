@@ -1,4 +1,4 @@
-namespace Product.API.Extensions;
+namespace Customer.API.Extensions;
 
 public static class ApplicationExtensions
 {
