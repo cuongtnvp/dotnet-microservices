@@ -9,6 +9,8 @@ public class MappingProfile: Profile
     public MappingProfile()
     {
         CreateMap<Entities.Customer,CustomerDto>().ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FirstName + " " + src.LastName));
+        CreateMap<CreateCustomerDto, Entities.Customer>();
+        CreateMap<UpdateCustomerDto, Entities.Customer>();
     }
 
     
