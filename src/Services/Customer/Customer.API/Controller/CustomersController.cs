@@ -1,13 +1,12 @@
-using System.ComponentModel.DataAnnotations;
 using Customer.API.Services.Interfaces;
 using Shared.Dtos.Customers;
 
 
-namespace Customer.API.Extensions;
+namespace Customer.API.Controller;
 
-public static class MinimalApiController
+public static class CustomersController
 {
-    public static IApplicationBuilder MinimalController(this WebApplication app)
+    public static IApplicationBuilder MapCustomerApi(this WebApplication app)
     {
         app.MapGet("/", () => "Welcome to Customer API!");
         app.MapGet("/api/customers", async (ICustomerService services) => Results.Ok( await services.GetCustomersAsync()));

@@ -1,7 +1,5 @@
 using Customer.API.Middlewares;
-using Customer.API.Services.Interfaces;
-using Microsoft.AspNetCore.Diagnostics;
-
+using Customer.API.Controller;
 namespace Customer.API.Extensions;
 
 public static class ApplicationExtensions
@@ -10,7 +8,7 @@ public static class ApplicationExtensions
     public static void UseInfrastructure(this WebApplication app)
     {
        
-        app.MinimalController();
+        app.MapCustomerApi();
         // app.MapPost("/",()=>"Welcome to Customer API!");
         // app.MapPut("/",()=>"Welcome to Customer API!");
         // app.MapDelete("/",()=>"Welcome to Customer API!");
